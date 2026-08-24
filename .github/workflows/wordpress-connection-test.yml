@@ -1,0 +1,72 @@
+name: WordPress connection test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/wordpress-connection-test.yml
+
+permissions:
+  contents: read
+
+jobs:
+  test-read-only-access:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      WP_URL: ${{ secrets.WP_URL }}
+      WP_USERNAME: ${{ secrets.WP_USERNAME }}
+      WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+
+    steps:
+      - name: Validate required secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          missing=0
+          for name in WP_URL WP_USERNAME WP_APP_PASSWORD; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "::error::$name is not configured as a repository secret."
+              missing=1
+            fi
+          done
+          [[ "$missing" -eq 0 ]]
+
+      - name: Test authenticated WordPress read access
+        shell: bash
+        run: |
+          set -euo pipefail
+          base_url="${WP_URL%/}"
+
+          user_status=$(curl --silent --show-error \
+            --output user-response.json \
+            --write-out '%{http_code}' \
+            --user "$WP_USERNAME:$WP_APP_PASSWORD" \
+            "$base_url/wp-json/wp/v2/users/me?context=edit")
+
+          if [[ "$user_status" != "200" ]]; then
+            error_code=$(jq -r '.code // "unknown_error"' user-response.json 2>/dev/null || true)
+            echo "::error::WordPress authentication failed (HTTP $user_status, code: $error_code)."
+            exit 1
+          fi
+
+          user_id=$(jq -r '.id' user-response.json)
+          display_name=$(jq -r '.name' user-response.json)
+          echo "Authenticated successfully as WordPress user: $display_name (ID: $user_id)."
+
+          posts_status=$(curl --silent --show-error \
+            --output posts-response.json \
+            --write-out '%{http_code}' \
+            --user "$WP_USERNAME:$WP_APP_PASSWORD" \
+            "$base_url/wp-json/wp/v2/posts?context=edit&per_page=1&_fields=id,slug,status")
+
+          if [[ "$posts_status" != "200" ]]; then
+            error_code=$(jq -r '.code // "unknown_error"' posts-response.json 2>/dev/null || true)
+            echo "::error::Authenticated user cannot read posts (HTTP $posts_status, code: $error_code)."
+            exit 1
+          fi
+
+          post_count=$(jq 'length' posts-response.json)
+          echo "WordPress posts endpoint is readable; sample rows returned: $post_count."
+          echo "Read-only connection test passed. No WordPress content was changed."
