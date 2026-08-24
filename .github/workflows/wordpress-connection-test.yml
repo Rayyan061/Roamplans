@@ -1,4 +1,4 @@
-name: WordPress read-only connection test v4
+name: WordPress read-only connection test v5
 
 on:
   workflow_dispatch:
@@ -38,16 +38,29 @@ jobs:
         run: |
           set -euo pipefail
           base_url="${WP_URL%/}"
+          auth_header="Basic $(printf '%s' "$WP_USERNAME:$WP_APP_PASSWORD" | base64 --wrap=0)"
 
           user_status=$(curl --silent --show-error \
+            --http1.1 \
+            --connect-timeout 15 \
+            --max-time 30 \
             --output user-response.json \
             --write-out '%{http_code}' \
-            --user "$WP_USERNAME:$WP_APP_PASSWORD" \
+            --header "Authorization: $auth_header" \
             "$base_url/wp-json/wp/v2/users/me?context=edit")
 
           if [[ "$user_status" != "200" ]]; then
             error_code=$(jq -r '.code // "unknown_error"' user-response.json 2>/dev/null || true)
-            echo "::error::WordPress authentication failed (HTTP $user_status, code: $error_code)."
+            introspect_status=$(curl --silent --show-error \
+              --http1.1 \
+              --connect-timeout 15 \
+              --max-time 30 \
+              --output introspect-response.json \
+              --write-out '%{http_code}' \
+              --header "Authorization: $auth_header" \
+              "$base_url/wp-json/wp/v2/users/me/application-passwords/introspect")
+            introspect_code=$(jq -r '.code // "none"' introspect-response.json 2>/dev/null || true)
+            echo "::error::Explicit Basic authentication failed (users/me: HTTP $user_status, code: $error_code; introspect: HTTP $introspect_status, code: $introspect_code)."
             exit 1
           fi
 
@@ -56,9 +69,12 @@ jobs:
           echo "Authenticated successfully as WordPress user: $display_name (ID: $user_id)."
 
           posts_status=$(curl --silent --show-error \
+            --http1.1 \
+            --connect-timeout 15 \
+            --max-time 30 \
             --output posts-response.json \
             --write-out '%{http_code}' \
-            --user "$WP_USERNAME:$WP_APP_PASSWORD" \
+            --header "Authorization: $auth_header" \
             "$base_url/wp-json/wp/v2/posts?context=edit&per_page=1&_fields=id,slug,status")
 
           if [[ "$posts_status" != "200" ]]; then
