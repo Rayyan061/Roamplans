@@ -1,4 +1,4 @@
-name: WordPress connection test
+name: WordPress read-only connection test
 
 on:
   workflow_dispatch:
