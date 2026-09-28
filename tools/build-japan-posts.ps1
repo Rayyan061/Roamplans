@@ -176,6 +176,36 @@ if ($sourceLeaf -eq 'Driving & Transportation') {
         @{N=4; Slug='iceland-ring-road-guide'; Url='iceland-ring-road-guide'; Short='Iceland Ring Road guide'; Desc='Plan an Iceland Ring Road trip with practical guidance on route direction, major regions, overnight stops, driving time, seasons, safety, and realistic trip length.'; Meta=@('Route 1 guide','Stops & trip length','Weather-aware road trip'); Note='Treat the Ring Road as a journey, not a race.'; NoteText='Balance overnight stops, limit daily driving, protect weather flexibility, and allow each region enough time to feel different from the road between hotels.'}
     )
 }
+if ($sourceLeaf -like 'Reykjav*') {
+    $category = 'Reykjavik Travel Guide'
+    $css = $css -replace 'content:"JP"','content:"IS"'
+    $posts = @(
+        @{N=1; Slug='reykjavik-travel-guide'; Url='reykjavik-travel-guide'; Short='First-time Reykjavik guide'; Desc='Plan your first Reykjavik visit with practical advice on sightseeing, museums, geothermal pools, transport, food, weather, day trips, and realistic city pacing.'; Meta=@('First-time Reykjavik','Sights, pools & culture','One- and two-day planning'); Note='Give Reykjavik enough time without losing the wider Iceland trip.'; NoteText='One full day covers the essentials, while two days allow museums, pools, food, and a slower city experience before or after the road trip.'},
+        @{N=2; Slug='where-to-stay-in-reykjavik'; Url='where-to-stay-in-reykjavik'; Short='Where to stay in Reykjavik'; Desc='Compare the best areas to stay in Reykjavik for first-time visitors, including Midborg, Old Harbour, Vesturbaer, Hlidar, Laugardalur, and the wider capital area.'; Meta=@('Best Reykjavik areas','Hotels, hostels & apartments','Parking and tour pickup'); Note='Choose the area around your real itinerary.'; NoteText='Central Reykjavik favors walking and tour access, while quieter outer areas can offer space, parking, pools, or better value when transport is planned.'}
+    )
+}
+if ($sourceLeaf -eq 'Major Iceland Experiences and Routes') {
+    $category = 'Major Iceland Experiences and Routes'
+    $css = $css -replace 'content:"JP"','content:"IS"'
+    $posts = @(
+        @{N=1; Slug='golden-circle-iceland'; Url='golden-circle-iceland'; Short='Golden Circle guide'; Desc='Plan the Golden Circle in Iceland with practical advice on Thingvellir, Geysir, Gullfoss, route timing, self-driving, tours, optional stops, and seasonal conditions.'; Meta=@('Thingvellir, Geysir & Gullfoss','Self-drive or guided tour','Route and timing guide'); Note='Protect enough time for the three core stops.'; NoteText='The Golden Circle is compact, but Thingvellir, Geysir, and Gullfoss each need a different pace. Add optional stops only after the core route works.'},
+        @{N=2; Slug='iceland-south-coast-guide'; Url='iceland-south-coast-guide'; Short='Iceland South Coast'; Desc='Explore Iceland’s South Coast with a realistic route through waterfalls, black-sand beaches, glaciers, Vik, Jokulsarlon, driving times, tours, and safety advice.'; Meta=@('Waterfalls & black-sand beaches','Glaciers and coastal stops','One- to three-day routes'); Note='Treat the South Coast as a route, not a checklist.'; NoteText='Choose a realistic turnaround point, limit daily stops, and protect time for weather, road conditions, ocean safety, and the drive back or onward.'},
+        @{N=3; Slug='northern-lights-in-iceland'; Url='northern-lights-in-iceland'; Short='Northern Lights in Iceland'; Desc='Plan a Northern Lights trip in Iceland with month-by-month timing, darkness and cloud guidance, viewing locations, tours, forecasts, photography, safety, and realistic expectations.'; Meta=@('Best months and times','Forecasts and clear skies','Tours, locations & photography'); Note='Build flexibility into every aurora plan.'; NoteText='Darkness, clear sky, and aurora activity must align. Give yourself several nights and change locations only when weather and road conditions support it.'}
+    )
+}
+if ($sourceLeaf -eq 'Portugal Travel Guide') {
+    $category = 'Portugal Travel Guide'
+    $css = $css -replace 'content:"JP"','content:"PT"'
+    $posts = @(
+        @{N=1; Slug='best-time-to-visit-portugal'; Url='best-time-to-visit-portugal'; Short='Best time for Portugal'; Desc='Find the best time to visit Portugal by comparing weather, crowds, travel costs, beaches, regional differences, and month-by-month seasonal trade-offs.'; Meta=@('Weather by region','Crowds and costs','Month-by-month advice'); Note='Choose the season for your route and priorities.'; NoteText='Northern Portugal, Lisbon, inland areas, and the Algarve do not share identical weather. Match the dates to the places and experiences that matter most.'},
+        @{N=2; Slug='how-many-days-in-portugal'; Url='how-many-days-in-portugal'; Short='How many days in Portugal?'; Desc='Compare realistic 5-, 7-, 10-, and 14-day Portugal trips, including usable sightseeing days, Lisbon, Porto, the Algarve, transfers, and route pacing.'; Meta=@('5, 7, 10 & 14 days','Realistic route pacing','City and coast options'); Note='Count usable days, not destination names.'; NoteText='Arrival, departure, and transfer days reduce sightseeing time. A strong Portugal trip gives Lisbon, Porto, the coast, and any day trips enough room.'},
+        @{N=3; Slug='how-to-plan-a-trip-to-portugal'; Url='how-to-plan-a-trip-to-portugal'; Short='Plan a Portugal trip'; Desc='Plan a Portugal trip step by step, from dates, trip length, route, flights, accommodation, trains, rental cars, activities, budget, and final checks.'; Meta=@('Step-by-step workflow','Route before bookings','First-time planning'); Note='Build the route before making expensive bookings.'; NoteText='Start with usable days, season, travel style, and logical bases. Flights, hotels, trains, and activities become easier once the route is realistic.'},
+        @{N=4; Slug='portugal-packing-list'; Url='portugal-packing-list'; Short='Portugal packing list'; Desc='Use this Portugal packing list for seasonal clothing, walking shoes, rain and sun protection, electronics, documents, toiletries, medication, and carry-on planning.'; Meta=@('Every-season checklist','Walking and weather gear','Carry-on planning'); Note='Pack for your route, season, and walking days.'; NoteText='Lisbon hills, Porto rain, Algarve sun, and Douro excursions require different details. Flexible layers and reliable shoes matter more than extra outfits.'},
+        @{N=5; Slug='portugal-travel-guide'; Url='portugal-travel-guide'; Short='First-time Portugal guide'; Desc='Plan your first Portugal trip with practical advice on Lisbon, Porto, Sintra, the Douro Valley, Algarve, routes, transport, costs, seasons, and daily pacing.'; Meta=@('First-time Portugal','Cities, coast & wine country','Routes and transport'); Note='Choose a focused route that matches your available days.'; NoteText='Portugal rewards slower city stays and logical north-to-south planning. Add regions only when transfers leave enough useful time at each destination.'},
+        @{N=6; Slug='portugal-travel-mistakes'; Url='portugal-travel-mistakes'; Short='Portugal travel mistakes'; Desc='Avoid common first-time Portugal travel mistakes involving rushed routes, rental cars, tolls, Sintra, restaurants, cash, walking, reservations, and seasonal planning.'; Meta=@('First-trip pitfalls','Transport and tolls','Practical fixes'); Note='A simpler route prevents most first-trip mistakes.'; NoteText='Protect usable days, understand transport before booking, and do not let Portugal’s compact map encourage too many short stays and long transfers.'},
+        @{N=7; Slug='portugal-trip-cost'; Url='portugal-trip-cost'; Short='Portugal trip cost'; Desc='Estimate a Portugal trip cost for 5, 7, 10, or 14 days with practical budget ranges for hotels, food, transport, attractions, rental cars, and extras.'; Meta=@('5, 7, 10 & 14 days','Budget ranges','Cost breakdown'); Note='Let the route and travel style shape the budget.'; NoteText='Accommodation, international flights, intercity transport, dining, and season create the largest differences. Compare the complete trip, not one cheap headline price.'}
+    )
+}
 
 $files = Get-ChildItem -LiteralPath $SourceDir -Filter '*.docx' | Sort-Object Name
 if ($files.Count -ne $posts.Count) { throw "Expected $($posts.Count) DOCX files, found $($files.Count)." }
@@ -196,7 +226,7 @@ for ($pi=0; $pi -lt $files.Count; $pi++) {
 
     $body = [Text.StringBuilder]::new()
     $faqMode = $false; $faqOpen = $false; $listOpen = $false
-    $tokyoMode = $category -in @('Tokyo Travel Guide','Kyoto Travel Guide','Osaka Travel Guide','Iceland Trip Planning','Iceland Itineraries','Iceland Driving & Transportation')
+    $tokyoMode = $category -in @('Tokyo Travel Guide','Kyoto Travel Guide','Osaka Travel Guide','Iceland Trip Planning','Iceland Itineraries','Iceland Driving & Transportation','Reykjavik Travel Guide','Major Iceland Experiences and Routes','Portugal Travel Guide')
     $titleSkipped = $false
     $tokyoMajorMode = $false
     $tocEntries = [Collections.Generic.List[object]]::new()
@@ -216,7 +246,7 @@ for ($pi=0; $pi -lt $files.Count; $pi++) {
             if (-not $tokyoMode) { continue }
             Close-List; Close-Faq
             $base=Slug $it.Text; $id=$base; $k=2; while($generatedIds.ContainsKey($id)){$id="$base-$k";$k++};$generatedIds[$id]=$true
-            $faqMode = $it.Text -match '^Frequently Asked Questions'
+            $faqMode = $it.Text -match '(?i)(Frequently Asked Questions|FAQ)$'
             $tokyoMajorMode = $true
             [void]$body.Append("<h2 class=`"section-title`" id=`"$id`">$($it.Html)</h2>")
             $tocEntries.Add([pscustomobject]@{Id=$id;Text=$it.Text})
@@ -240,16 +270,24 @@ for ($pi=0; $pi -lt $files.Count; $pi++) {
                 continue
             }
             $id=$idQueue.Dequeue()
-            $faqMode = $it.Text -match '^Frequently Asked Questions$'
+            $faqMode = $it.Text -match '^Frequently Asked Questions'
             [void]$body.Append("<h2 class=`"section-title`" id=`"$id`">$($it.Html)</h2>")
-            if($tokyoMode){$generatedIds[$id]=$true;$tocEntries.Add([pscustomobject]@{Id=$id;Text=$it.Text})}
+            $generatedIds[$id]=$true
+            if($tokyoMode){$tocEntries.Add([pscustomobject]@{Id=$id;Text=$it.Text})}
             if($faqMode){[void]$body.Append('<div class="rp-faq-list">');$faqOpen=$true}
             continue
         }
         if ($it.Style -eq 'Heading3') {
+            if ($it.Text -eq 'Meta Description') {
+                if ($i + 1 -lt $items.Count -and $items[$i + 1].Type -eq 'p' -and -not $items[$i + 1].Style) { $i++ }
+                continue
+            }
             Close-List
             if($faqMode){
-                $qId=Slug $it.Text
+                $qBase=Slug $it.Text; $qId=$qBase; $qk=2
+                if($generatedIds.ContainsKey($qId)){$qId="$qBase-faq"}
+                while($generatedIds.ContainsKey($qId)){$qId="$qBase-faq-$qk";$qk++}
+                $generatedIds[$qId]=$true
                 [void]$body.Append("<details class=`"rp-faq-item`"><summary class=`"rp-faq-question`" id=`"$qId`"><span>$($it.Html)</span><span aria-hidden=`"true`" class=`"rp-faq-icon`"></span></summary><div class=`"rp-faq-answer`"><div class=`"rp-faq-answer-inner`">")
                 # FAQ answers are closed when the next heading is reached.
                 $j=$i+1; while($j -lt $items.Count -and $items[$j].Type -eq 'p' -and -not $items[$j].Style){[void]$body.Append("<p>$($items[$j].Html)</p>");$j++};[void]$body.Append('</div></div></details>');$i=$j-1
@@ -412,7 +450,7 @@ for ($pi=0; $pi -lt $files.Count; $pi++) {
         }
         $relatedItems = ($related | ForEach-Object { '<li><span>&#8599;</span><div><a href="' + $_.Url + '">' + (Html $_.Text) + '</a></div></li>' }) -join ''
         $relatedBlock = '<div class="rp-callout"><div class="callout-icon">+</div><div><strong>Related Kyoto planning guides</strong><ul class="rp-list">' + $relatedItems + '</ul></div></div>'
-        $faqPattern = '<h2 class="section-title" id="frequently-asked-questions">'
+        $faqPattern = '<h2 class="section-title" id="(?:frequently-asked-questions|golden-circle-faq|south-coast-faq|faq)">'
         $bodyHtml = ([regex]$faqPattern).Replace($bodyHtml,($relatedBlock + '$0'),1)
     }
     if ($category -eq 'Osaka Travel Guide') {
@@ -454,7 +492,7 @@ for ($pi=0; $pi -lt $files.Count; $pi++) {
         $faqPattern = '<h2 class="section-title" id="frequently-asked-questions(?:-about-osaka)?">'
         $bodyHtml = ([regex]$faqPattern).Replace($bodyHtml,($relatedBlock + '$0'),1)
     }
-    if ($category -in @('Iceland Trip Planning','Iceland Itineraries','Iceland Driving & Transportation')) {
+    if ($category -in @('Iceland Trip Planning','Iceland Itineraries','Iceland Driving & Transportation','Reykjavik Travel Guide','Major Iceland Experiences and Routes')) {
         # Some source Word files apply bold to entire normal paragraphs. Restore
         # those paragraphs to the locked layout's body weight while preserving
         # genuine inline emphasis elsewhere.
@@ -539,14 +577,82 @@ for ($pi=0; $pi -lt $files.Count; $pi++) {
                 @{Url='https://roamplans.com/how-to-plan-a-trip-to-iceland/';Text='Use the step-by-step planning workflow'},
                 @{Url='https://roamplans.com/what-to-pack-for-iceland/';Text='Prepare waterproof layers and road-trip essentials'}
             ) }
+            'reykjavik-travel-guide' { @(
+                @{Url='https://roamplans.com/where-to-stay-in-reykjavik/';Text='Choose the best Reykjavik area for your stay'},
+                @{Url='https://roamplans.com/how-to-get-around-iceland/';Text='Plan Reykjavik and Iceland transport'},
+                @{Url='https://roamplans.com/iceland-3-day-itinerary/';Text='Fit Reykjavik into a short Iceland itinerary'}
+            ) }
+            'where-to-stay-in-reykjavik' { @(
+                @{Url='https://roamplans.com/reykjavik-travel-guide/';Text='Plan your first Reykjavik sightseeing days'},
+                @{Url='https://roamplans.com/how-to-get-around-iceland/';Text='Compare airport, city, and road-trip transport'},
+                @{Url='https://roamplans.com/iceland-trip-cost/';Text='Estimate the complete Iceland trip budget'}
+            ) }
+            'golden-circle-iceland' { @(
+                @{Url='https://roamplans.com/iceland-south-coast-guide/';Text='Compare the Golden Circle with the South Coast'},
+                @{Url='https://roamplans.com/driving-in-iceland/';Text='Prepare for Iceland road and weather conditions'},
+                @{Url='https://roamplans.com/iceland-3-day-itinerary/';Text='Fit the Golden Circle into a short Iceland trip'}
+            ) }
+            'iceland-south-coast-guide' { @(
+                @{Url='https://roamplans.com/golden-circle-iceland/';Text='Compare the South Coast with the Golden Circle'},
+                @{Url='https://roamplans.com/iceland-5-day-itinerary/';Text='Use the South Coast in a realistic five-day route'},
+                @{Url='https://roamplans.com/driving-in-iceland/';Text='Review Iceland driving and safety guidance'}
+            ) }
+            'northern-lights-in-iceland' { @(
+                @{Url='https://roamplans.com/best-time-to-visit-iceland/';Text='Compare Iceland seasons, darkness, and weather'},
+                @{Url='https://roamplans.com/reykjavik-travel-guide/';Text='Plan a Reykjavik base for aurora nights'},
+                @{Url='https://roamplans.com/what-to-pack-for-iceland/';Text='Pack warm and waterproof layers for night viewing'}
+            ) }
         }
         $relatedItems = ($related | ForEach-Object { '<li><span>&#8599;</span><div><a href="' + $_.Url + '">' + (Html $_.Text) + '</a></div></li>' }) -join ''
-        $relatedLabel = if ($category -eq 'Iceland Itineraries') { 'Related Iceland itinerary guides' } elseif ($category -eq 'Iceland Driving & Transportation') { 'Related Iceland driving and transport guides' } else { 'Related Iceland planning guides' }
+        $relatedLabel = if ($category -eq 'Iceland Itineraries') { 'Related Iceland itinerary guides' } elseif ($category -eq 'Iceland Driving & Transportation') { 'Related Iceland driving and transport guides' } elseif ($category -eq 'Reykjavik Travel Guide') { 'Related Reykjavik and Iceland guides' } elseif ($category -eq 'Major Iceland Experiences and Routes') { 'Related Iceland experience and route guides' } else { 'Related Iceland planning guides' }
         $relatedBlock = '<div class="rp-callout"><div class="callout-icon">+</div><div><strong>' + $relatedLabel + '</strong><ul class="rp-list">' + $relatedItems + '</ul></div></div>'
-        $faqPattern = '<h2 class="section-title" id="frequently-asked-questions">'
+        $faqPattern = '<h2 class="section-title" id="(?:frequently-asked-questions|golden-circle-faq|south-coast-faq|faq)">'
         $bodyHtml = ([regex]$faqPattern).Replace($bodyHtml,($relatedBlock + '$0'),1)
     }
-    if ($category -in @('Japan Itineraries','Japan Transportation','Tokyo Travel Guide','Kyoto Travel Guide','Osaka Travel Guide','Iceland Trip Planning','Iceland Itineraries','Iceland Driving & Transportation')) {
+    if ($category -eq 'Portugal Travel Guide') {
+        $related = switch ($post.Slug) {
+            'best-time-to-visit-portugal' { @(
+                @{Url='https://roamplans.com/how-to-plan-a-trip-to-portugal/';Text='Build your Portugal route around the right season'},
+                @{Url='https://roamplans.com/portugal-packing-list/';Text='Pack for Portugal weather and regional differences'},
+                @{Url='https://roamplans.com/portugal-travel-guide/';Text='Review the complete first-time Portugal guide'}
+            ) }
+            'how-many-days-in-portugal' { @(
+                @{Url='https://roamplans.com/how-to-plan-a-trip-to-portugal/';Text='Turn your available days into a realistic route'},
+                @{Url='https://roamplans.com/portugal-trip-cost/';Text='Estimate the cost for your Portugal trip length'},
+                @{Url='https://roamplans.com/portugal-travel-guide/';Text='Review the complete first-time Portugal guide'}
+            ) }
+            'how-to-plan-a-trip-to-portugal' { @(
+                @{Url='https://roamplans.com/portugal-travel-guide/';Text='Start with the complete Portugal travel guide'},
+                @{Url='https://roamplans.com/how-many-days-in-portugal/';Text='Choose a realistic number of days'},
+                @{Url='https://roamplans.com/portugal-trip-cost/';Text='Build a complete Portugal travel budget'}
+            ) }
+            'portugal-packing-list' { @(
+                @{Url='https://roamplans.com/best-time-to-visit-portugal/';Text='Match the packing list to Portugal seasons'},
+                @{Url='https://roamplans.com/portugal-travel-mistakes/';Text='Avoid common clothing and luggage mistakes'},
+                @{Url='https://roamplans.com/portugal-travel-guide/';Text='Review the complete first-time Portugal guide'}
+            ) }
+            'portugal-travel-guide' { @(
+                @{Url='https://roamplans.com/how-to-plan-a-trip-to-portugal/';Text='Use the step-by-step Portugal planning workflow'},
+                @{Url='https://roamplans.com/how-many-days-in-portugal/';Text='Choose the right Portugal trip length'},
+                @{Url='https://roamplans.com/best-time-to-visit-portugal/';Text='Compare Portugal weather, crowds, and costs'}
+            ) }
+            'portugal-travel-mistakes' { @(
+                @{Url='https://roamplans.com/portugal-travel-guide/';Text='Review the complete first-time Portugal guide'},
+                @{Url='https://roamplans.com/how-to-plan-a-trip-to-portugal/';Text='Use a more reliable planning process'},
+                @{Url='https://roamplans.com/portugal-packing-list/';Text='Pack light for hills, trains, and changing weather'}
+            ) }
+            'portugal-trip-cost' { @(
+                @{Url='https://roamplans.com/how-many-days-in-portugal/';Text='Match the budget to your Portugal trip length'},
+                @{Url='https://roamplans.com/how-to-plan-a-trip-to-portugal/';Text='Connect the budget to your route and bookings'},
+                @{Url='https://roamplans.com/portugal-travel-guide/';Text='Review the complete first-time Portugal guide'}
+            ) }
+        }
+        $relatedItems = ($related | ForEach-Object { '<li><span>&#8599;</span><div><a href="' + $_.Url + '">' + (Html $_.Text) + '</a></div></li>' }) -join ''
+        $relatedBlock = '<div class="rp-callout"><div class="callout-icon">+</div><div><strong>Related Portugal planning guides</strong><ul class="rp-list">' + $relatedItems + '</ul></div></div>'
+        $faqPattern = '<h2 class="section-title" id="frequently-asked-questions[^\"]*">'
+        $bodyHtml = ([regex]$faqPattern).Replace($bodyHtml,($relatedBlock + '$0'),1)
+    }
+    if ($category -in @('Japan Itineraries','Japan Transportation','Tokyo Travel Guide','Kyoto Travel Guide','Osaka Travel Guide','Iceland Trip Planning','Iceland Itineraries','Iceland Driving & Transportation','Reykjavik Travel Guide','Major Iceland Experiences and Routes','Portugal Travel Guide')) {
         $imagePath = "images/$($post.Slug).png"
         $imageAlt = Html ($title + ' visual overview')
         $imageCaption = Html ($title + ' - a visual overview of the key decisions covered in this guide.')
@@ -803,6 +909,78 @@ for ($pi=0; $pi -lt $files.Count; $pi++) {
                 @(
                     @{After='south-iceland-the-easiest-ring-road-section-to-understand'; File='iceland-ring-road-south.png'; Alt='Adnan Ahmed driving the South Iceland section of the Ring Road'; Caption='South Iceland has famous stops close to Route 1, but it still needs disciplined pacing and realistic overnight planning.'},
                     @{After='southeast-iceland-where-you-should-slow-down'; File='iceland-ring-road-southeast.png'; Alt='Adnan Ahmed overlooking glaciers and mountains in southeast Iceland'; Caption='Southeast Iceland rewards a slower day because glaciers, lagoons, coastline, and changing weather compete for time.'}
+                )
+            }
+            'reykjavik-travel-guide' {
+                @(
+                    @{After='hallgr-mskirkja'; File='reykjavik-hallgrimskirkja-city-view.png'; Alt='Hallgrimskirkja rising above the colourful rooftops of central Reykjavik'; Caption='Hallgrimskirkja is a natural first landmark and its tower helps visitors understand Reykjavik''s compact layout.'},
+                    @{After='the-old-harbour'; File='reykjavik-old-harbour-waterfront.png'; Alt='Reykjavik Old Harbour with waterfront buildings and mountain views'; Caption='The Old Harbour combines maritime history, restaurants, museums, whale-watching departures, and an easy waterfront walk.'}
+                )
+            }
+            'where-to-stay-in-reykjavik' {
+                @(
+                    @{After='1-mi-borg-101-reykjav-k-best-overall-for-first-time-visitors'; File='where-to-stay-reykjavik-midborg.png'; Alt='Boutique accommodation on a colourful central Reykjavik street'; Caption='Midborg offers the easiest access to central sights, restaurants, museums, nightlife, and many tour pickup points.'},
+                    @{After='2-old-harbour-grandi-best-for-waterfront-atmosphere'; File='where-to-stay-reykjavik-old-harbour.png'; Alt='Hotel and guesthouse area near Reykjavik Old Harbour waterfront'; Caption='Old Harbour suits visitors who want waterfront atmosphere, whale-watching access, dining, and a short walk into the centre.'}
+                )
+            }
+            'golden-circle-iceland' {
+                @(
+                    @{After='stop-1-ingvellir-national-park'; File='golden-circle-thingvellir.png'; Alt='Thingvellir National Park rift valley and Icelandic landscape'; Caption='Thingvellir combines Icelandic history, geology, walking routes, and broad landscape views at the first core Golden Circle stop.'},
+                    @{After='stop-3-gullfoss'; File='golden-circle-gullfoss.png'; Alt='Gullfoss waterfall viewed safely from the marked visitor path'; Caption='Gullfoss provides the Golden Circle’s largest waterfall landscape and deserves time for its different viewing areas.'}
+                )
+            }
+            'iceland-south-coast-guide' {
+                @(
+                    @{After='stop-1-seljalandsfoss'; File='south-coast-seljalandsfoss.png'; Alt='Seljalandsfoss waterfall on Iceland South Coast with the marked path'; Caption='Seljalandsfoss is a natural first major South Coast stop, but spray, wet paths, and seasonal access affect the visit.'},
+                    @{After='stop-2-sk-gafoss'; File='south-coast-skogafoss.png'; Alt='Skogafoss waterfall and its dramatic South Iceland landscape'; Caption='Skogafoss offers a powerful ground-level view and an optional staircase to the top when conditions and energy allow.'}
+                )
+            }
+            'northern-lights-in-iceland' {
+                @(
+                    @{After='when-is-northern-lights-season-in-iceland'; File='northern-lights-season-iceland.png'; Alt='Northern Lights above a dark Icelandic winter landscape'; Caption='Aurora season depends on usable darkness, while cloud cover and solar activity decide whether a display is visible on a particular night.'},
+                    @{After='clear-sky-is-one-of-the-biggest-factors'; File='northern-lights-clear-sky.png'; Alt='Traveler checking breaks in cloud beneath the Northern Lights in Iceland'; Caption='A modest aurora can be visible through clear sky, while strong activity remains hidden behind solid cloud.'}
+                )
+            }
+            'best-time-to-visit-portugal' {
+                @(
+                    @{After='spring-in-portugal-march-to-may'; File='portugal-spring-lisbon.png'; Alt='Lisbon in spring with jacaranda trees, tiled buildings and mild sunshine'; Caption='Spring combines comfortable city weather with colourful streets and generally lighter crowds.'},
+                    @{After='summer-in-portugal-june-to-august'; File='portugal-summer-algarve.png'; Alt='Sunny Algarve coast and beach during summer in Portugal'; Caption='Summer brings the strongest beach weather along with peak demand, heat, and busier coastal resorts.'}
+                )
+            }
+            'how-many-days-in-portugal' {
+                @(
+                    @{After='is-7-days-enough-for-portugal'; File='portugal-seven-day-route.png'; Alt='Portugal seven-day journey between Lisbon and Porto by train'; Caption='Seven days work best with two strong bases and carefully chosen day trips.'},
+                    @{After='is-10-days-enough-for-portugal'; File='portugal-ten-day-route.png'; Alt='Ten-day Portugal route combining Lisbon, Porto and the Douro Valley'; Caption='Ten days create room for Lisbon, Porto, and one additional region without rushing every transfer.'}
+                )
+            }
+            'how-to-plan-a-trip-to-portugal' {
+                @(
+                    @{After='step-3-choose-when-you-want-to-visit-portugal'; File='plan-portugal-season-route.png'; Alt='Traveler planning a Portugal route with a map, calendar and travel notebook'; Caption='Dates, season, and regional weather should shape the route before major reservations are made.'},
+                    @{After='step-8-decide-how-you-will-travel-around-portugal'; File='portugal-transport-planning.png'; Alt='Portugal train and rental car choices for a multi-city journey'; Caption='Portugal transport works best when trains, buses, and rental cars are matched to each part of the route.'}
+                )
+            }
+            'portugal-packing-list' {
+                @(
+                    @{After='the-most-important-item-comfortable-walking-shoes'; File='portugal-walking-shoes.png'; Alt='Comfortable walking shoes on a traditional Portuguese cobblestone street'; Caption='Supportive shoes matter on Portugal''s hills, cobblestones, stairs, stations, and long sightseeing days.'},
+                    @{After='what-to-pack-for-portugal-in-winter'; File='portugal-seasonal-layers.png'; Alt='Light waterproof layers prepared for a winter city trip in Portugal'; Caption='Flexible layers and rain protection are more useful than packing many heavy single-purpose outfits.'}
+                )
+            }
+            'portugal-travel-guide' {
+                @(
+                    @{After='where-should-first-time-visitors-go-in-portugal'; File='portugal-first-time-destinations.png'; Alt='First-time Portugal destinations including Lisbon, Porto and the Algarve'; Caption='Lisbon and Porto form the strongest first-trip core, while extra regions should fit the available time.'},
+                    @{After='best-first-time-portugal-routes'; File='portugal-classic-route.png'; Alt='Classic Portugal route linking Lisbon, Sintra, Porto and the Douro Valley'; Caption='A logical route protects sightseeing time and avoids unnecessary backtracking between Portugal''s major bases.'}
+                )
+            }
+            'portugal-travel-mistakes' {
+                @(
+                    @{After='mistake-5-renting-a-car-for-the-whole-trip'; File='portugal-rental-car-mistake.png'; Alt='Rental car parked outside a narrow historic Portuguese city centre'; Caption='A rental car is useful for selected rural regions but can add parking and navigation problems in Lisbon and Porto.'},
+                    @{After='mistake-7-treating-sintra-like-a-two-hour-lisbon-attraction'; File='portugal-sintra-day-trip.png'; Alt='Visitors exploring colourful Pena Palace during a full Sintra day trip'; Caption='Sintra needs realistic transport, timed-entry, walking, and crowd allowances rather than a rushed two-hour stop.'}
+                )
+            }
+            'portugal-trip-cost' {
+                @(
+                    @{After='the-five-costs-that-control-your-portugal-budget'; File='portugal-cost-breakdown.png'; Alt='Portugal travel budget planning with accommodation, food and transport categories'; Caption='Accommodation, food, local and intercity transport, activities, and small daily costs shape the complete budget.'},
+                    @{After='1-accommodation-usually-the-biggest-cost'; File='portugal-accommodation-budget.png'; Alt='Well-located Portugal hotel room representing accommodation budget choices'; Caption='Accommodation is usually the largest on-the-ground expense and changes substantially by season and location.'}
                 )
             }
         }
